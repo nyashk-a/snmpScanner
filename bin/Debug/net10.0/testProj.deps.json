@@ -1,0 +1,176 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "testProj/1.0.0": {
+        "dependencies": {
+          "Lextm.SharpSnmpLib": "12.5.7",
+          "MessagePack": "3.1.7",
+          "System.CommandLine": "2.0.9",
+          "AVcontrol": "2.8.0.0",
+          "Shared": "1.0.0.0"
+        },
+        "runtime": {
+          "testProj.dll": {}
+        }
+      },
+      "Lextm.SharpSnmpLib/12.5.7": {
+        "runtime": {
+          "lib/net8.0/SharpSnmpLib.dll": {
+            "assemblyVersion": "12.5.7.0",
+            "fileVersion": "12.5.7.0"
+          }
+        }
+      },
+      "MessagePack/3.1.7": {
+        "dependencies": {
+          "MessagePack.Annotations": "3.1.7",
+          "Microsoft.NET.StringTools": "17.11.4"
+        },
+        "runtime": {
+          "lib/net9.0/MessagePack.dll": {
+            "assemblyVersion": "3.1.7.0",
+            "fileVersion": "3.1.7.0"
+          }
+        }
+      },
+      "MessagePack.Annotations/3.1.7": {
+        "runtime": {
+          "lib/netstandard2.0/MessagePack.Annotations.dll": {
+            "assemblyVersion": "3.1.7.0",
+            "fileVersion": "3.1.7.0"
+          }
+        }
+      },
+      "Microsoft.NET.StringTools/17.11.4": {
+        "runtime": {
+          "lib/net8.0/Microsoft.NET.StringTools.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "17.11.4.40609"
+          }
+        }
+      },
+      "System.CommandLine/2.0.9": {
+        "runtime": {
+          "lib/net8.0/System.CommandLine.dll": {
+            "assemblyVersion": "2.0.9.0",
+            "fileVersion": "2.0.926.27113"
+          }
+        },
+        "resources": {
+          "lib/net8.0/cs/System.CommandLine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/System.CommandLine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/System.CommandLine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/System.CommandLine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/System.CommandLine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/System.CommandLine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/System.CommandLine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/System.CommandLine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/System.CommandLine.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/System.CommandLine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/System.CommandLine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/System.CommandLine.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/System.CommandLine.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "AVcontrol/2.8.0.0": {
+        "runtime": {
+          "AVcontrol.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.0.0"
+          }
+        }
+      },
+      "Shared/1.0.0.0": {
+        "runtime": {
+          "Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "testProj/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Lextm.SharpSnmpLib/12.5.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k631wRQNnFOpKxsYyziPp1UR4v+IBFS81nnmQyQa+RxSlmYjoLViNXINV43Aa49kQO1ulSUmGTI9DD94z0HAHg==",
+      "path": "lextm.sharpsnmplib/12.5.7",
+      "hashPath": "lextm.sharpsnmplib.12.5.7.nupkg.sha512"
+    },
+    "MessagePack/3.1.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gXpifaxbhfBqh8bVToQn9j+OgCnhXWMbRCV7RQIbCVa9CNJG1fY6oHAYYl+ER3Tb9uUIHiQ5QbGiGwwFhoagbA==",
+      "path": "messagepack/3.1.7",
+      "hashPath": "messagepack.3.1.7.nupkg.sha512"
+    },
+    "MessagePack.Annotations/3.1.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IW1yX9viarFl/Dsio5G+pM90JkOSW4xhAiJcKxPPF5rzyp2/yCpieWju8G99QLEmaQeze2uQMEskUBA59YZmkw==",
+      "path": "messagepack.annotations/3.1.7",
+      "hashPath": "messagepack.annotations.3.1.7.nupkg.sha512"
+    },
+    "Microsoft.NET.StringTools/17.11.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mudqUHhNpeqIdJoUx2YDWZO/I9uEDYVowan89R6wsomfnUJQk6HteoQTlNjZDixhT2B4IXMkMtgZtoceIjLRmA==",
+      "path": "microsoft.net.stringtools/17.11.4",
+      "hashPath": "microsoft.net.stringtools.17.11.4.nupkg.sha512"
+    },
+    "System.CommandLine/2.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SW0WhEk4NFVZ4lOnsLrHQOV/7s0eTidezNybHQWXfqhuXWB17X3RXbrifeWBbUx1iu+NcYchVSufmW7svjUEnA==",
+      "path": "system.commandline/2.0.9",
+      "hashPath": "system.commandline.2.0.9.nupkg.sha512"
+    },
+    "AVcontrol/2.8.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

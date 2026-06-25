@@ -1,0 +1,3 @@
+/home/nyashka/projects/csP/testProj/bin/Release/net10.0/linux-x64/publish/testProj.pdb
+/home/nyashka/projects/csP/testProj/bin/Release/net10.0/linux-x64/publish/Shared.pdb
+/home/nyashka/projects/csP/testProj/bin/Release/net10.0/linux-x64/publish/testProj
