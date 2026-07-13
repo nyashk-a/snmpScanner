@@ -28,7 +28,7 @@ namespace MyProgram
                 Logger.Log($"Application started in {DateTime.Now}");
             }
 
-            await using var deviceDb = new JsonlDatabase<MonitoredDevice>(Config.addressesDataBasePath);
+            await using var deviceDb = new DatabaseController<MonitoredDevice>(Config.addressesDataBasePath);
             await using var minuteController = new MinuteTrafficStore(Config.todayStatisticDataBasePath);
 
             await StartMonitoring(options, deviceDb, minuteController);
@@ -47,7 +47,7 @@ namespace MyProgram
             //     await Task.Delay(20 * 1000);
             // } тоже работает в здоровом формате
         }
-        private static async Task StartMonitoring(CommandOptions options, JsonlDatabase<MonitoredDevice> deviceDb, MinuteTrafficStore minuteController)
+        private static async Task StartMonitoring(CommandOptions options, IDatabaseController<MonitoredDevice> deviceDb, MinuteTrafficStore minuteController)
         {
             var monitor = new Monitor();
             if (options.CheckNew) await monitor.ConfigureIpListAsync(deviceDb);

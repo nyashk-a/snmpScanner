@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/nyashka/projects/csP/testProj/testProj.csproj": {}
+    "/home/nyashka/projects/csP/snmpScanner/testProj.csproj": {}
   },
   "projects": {
-    "/home/nyashka/projects/csP/testProj/testProj.csproj": {
+    "/home/nyashka/projects/csP/snmpScanner/testProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nyashka/projects/csP/testProj/testProj.csproj",
+        "projectUniqueName": "/home/nyashka/projects/csP/snmpScanner/testProj.csproj",
         "projectName": "testProj",
-        "projectPath": "/home/nyashka/projects/csP/testProj/testProj.csproj",
+        "projectPath": "/home/nyashka/projects/csP/snmpScanner/testProj.csproj",
         "packagesPath": "/home/nyashka/.nuget/packages/",
-        "outputPath": "/home/nyashka/projects/csP/testProj/obj/",
+        "outputPath": "/home/nyashka/projects/csP/snmpScanner/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/nyashka/.nuget/NuGet/NuGet.Config"
@@ -52,11 +52,9 @@
               "target": "Package",
               "version": "[3.1.7, )"
             },
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
+            "Microsoft.Data.Sqlite": {
               "target": "Package",
-              "version": "[10.0.9, )",
-              "autoReferenced": true
+              "version": "[10.0.9, )"
             },
             "System.CommandLine": {
               "target": "Package",
@@ -77,18 +75,6 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[10.0.9, 10.0.9]"
-            },
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
-              "version": "[10.0.9, 10.0.9]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[10.0.9, 10.0.9]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
               "version": "[10.0.9, 10.0.9]"
             }
           ],
@@ -372,11 +358,6 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
-        }
-      },
-      "runtimes": {
-        "linux-x64": {
-          "#import": []
         }
       }
     }

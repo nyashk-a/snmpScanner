@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Lextm.SharpSnmpLib" Version="12.5.7" />
     <PackageReference Include="MessagePack" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.9" />
     <PackageReference Include="System.CommandLine" Version="2.0.9" />
   </ItemGroup>
 

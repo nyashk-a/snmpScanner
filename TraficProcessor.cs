@@ -48,7 +48,7 @@ namespace MyProgram
             }
         }
 
-        public static async Task SaveDayStatistic(MinuteTrafficStore snapshot, JsonlDatabase<MonitoredDevice> parametrs, CancellationToken ct)
+        public static async Task SaveDayStatistic(MinuteTrafficStore snapshot, IDatabaseController<MonitoredDevice> parametrs, CancellationToken ct)
         {
             Logger.Log($"начал ожидать времени записи. сейчас: {DateTime.Now.Hour * 60 + DateTime.Now.Minute} жду: {Config.timeToSave}");
             while (!ct.IsCancellationRequested)
@@ -65,7 +65,7 @@ namespace MyProgram
                     
                     string todayId = now.ToString("YY:MM:dd");
                     Logger.Log($"{todayId}: НАЧАЛО ЗАПИСИ дневной статистики");
-                    await using (var globaleDatabase = new JsonlDatabase<GlobalDeviceTrafic>(Config.globalStatisticDataBasePath))
+                    await using (var globaleDatabase = new DatabaseController<GlobalDeviceTrafic>(Config.globalStatisticDataBasePath))
                     {
                         var existing = await globaleDatabase.GetAsync(todayId, ct);
                         if (existing != null)

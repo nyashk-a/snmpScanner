@@ -8,17 +8,28 @@ using MessagePack;
 
 namespace MyProgram
 {
+    public interface IDatabaseController<T> : IAsyncDisposable where T : IHasId
+{
+    Task<T?> GetAsync(string id, CancellationToken cancellationToken = default);
+
+    Task AddAsync(T item, CancellationToken cancellationToken = default);
+
+    Task<bool> UpdateAsync(T newItem, CancellationToken cancellationToken = default);
+
+    Task<bool> DeleteAsync(string id, CancellationToken cancellationToken = default);
+
+    Task<List<T>> GetAllAsync(CancellationToken cancellationToken = default);
+
+    Task SaveAsync(CancellationToken cancellationToken = default);
+}
+    
     public interface IHasId
     {
         string ID { get; set; }
         bool IsDeleted { get; set; }
     }
 
-    /// <summary>
-    /// Хранилище объектов типа T в бинарном файле с префиксом длины.
-    /// Формат файла: последовательность блоков [Int32 длина][байты MessagePack].
-    /// </summary>
-    public sealed class JsonlDatabase<T> : IAsyncDisposable where T : IHasId
+    public sealed class DatabaseController<T> :  IDatabaseController<T> where T : IHasId
     {
         private readonly string _filePath;
         private readonly MessagePackSerializerOptions _mpOptions;
@@ -29,13 +40,12 @@ namespace MyProgram
         private bool _disposed;
         private bool _dirty;
 
-        public JsonlDatabase(string filePath, int autoSaveIntervalMs = 60 * 1000)
+        public DatabaseController(string filePath, int autoSaveIntervalMs = 60 * 1000)
         {
             _filePath = filePath ?? throw new ArgumentNullException(nameof(filePath));
             _autoSaveIntervalMs = autoSaveIntervalMs;
             _data = new ConcurrentDictionary<string, T>();
 
-            // Настройки MessagePack: игнорируем свойства со значением null, используем стандартные соглашения
             _mpOptions = MessagePackSerializerOptions.Standard
                 .WithResolver(MessagePack.Resolvers.ContractlessStandardResolver.Instance);
 
@@ -51,7 +61,6 @@ namespace MyProgram
         {
             if (!File.Exists(_filePath))
             {
-                // Создаём пустой файл, если его нет
                 using var ffs = new FileStream(_filePath, FileMode.Create, FileAccess.Write);
                 return;
             }
@@ -63,10 +72,9 @@ namespace MyProgram
             {
                 try
                 {
-                    // Читаем длину блока
                     int length = reader.ReadInt32();
                     if (length <= 0 || length > fs.Length - fs.Position)
-                        break; // повреждённые данные – выходим
+                        break;
 
                     byte[] data = reader.ReadBytes(length);
                     if (data.Length != length)
@@ -83,7 +91,6 @@ namespace MyProgram
                 }
                 catch
                 {
-                    // При ошибке чтения прерываем загрузку
                     break;
                 }
             }
@@ -105,7 +112,6 @@ namespace MyProgram
                         continue;
 
                     byte[] data = MessagePackSerializer.Serialize(item, _mpOptions, cancellationToken);
-                    // Записываем длину, затем байты
                     writer.Write(data.Length);
                     writer.Write(data);
                 }
@@ -118,7 +124,6 @@ namespace MyProgram
                 throw;
             }
 
-            // Атомарная замена
             File.Replace(tempFile, _filePath, null);
         }
 

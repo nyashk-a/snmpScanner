@@ -87,7 +87,7 @@ namespace MyProgram
             };
         }
 
-        public async Task ConfigureIpListAsync(JsonlDatabase<MonitoredDevice> database)
+        public async Task ConfigureIpListAsync(IDatabaseController<MonitoredDevice> database)
         {
             Logger.Log($"Configuring IP list from {_targetIpAddresses.Count} addresses from {Config.csvConfigPath}");
             var semaphore = new SemaphoreSlim(300);
@@ -97,7 +97,7 @@ namespace MyProgram
             await database.SaveAsync();
         }
 
-        private async Task ProcessIpAsync(string ip, SemaphoreSlim semaphore, JsonlDatabase<MonitoredDevice> db)
+        private async Task ProcessIpAsync(string ip, SemaphoreSlim semaphore, IDatabaseController<MonitoredDevice> db)
         {
             await semaphore.WaitAsync();
             try
